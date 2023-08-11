@@ -1,0 +1,117 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #004D40;
+    font-family: 'Times New Roman';
+}
+
+header {
+    background-color: #000000;
+    width: 100%;
+    clear: both;
+    content: '';
+    display: table;
+}
+
+.menu {
+    width: 900px;
+    margin: 0 auto;
+}
+
+img {
+    width: 120px;
+    height: 120px;
+    float: left;
+    padding: 2%;
+}
+
+nav {
+    float: right;
+}
+
+nav ul li {
+    list-style: none;
+    margin-left: 80px;
+    padding: 50px 0;
+    float: left;
+}
+
+nav ul li a {
+    text-decoration:  none;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+nav ul li a::before {
+    display: block;
+    content: '';
+    width: 0%;
+    background: #FFFFFF;
+    height: 5px;
+    top: 0;
+    position: absolute;
+    transition: width 0.2s;
+}
+
+nav ul li a:hover::before {
+    width: 3.7%;
+}
+
+.form-register {
+    width: 400px;
+    background: #00332E;
+    padding:  30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 4px;
+    font-family: 'Times New Roman';
+    color: #FFFFFF;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-register h4 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.controls {
+    width: 100%;
+    background: #00332E;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #FFFFFF;
+    font-family: 'Times New Roman';
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.form-register p {
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.form-register a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.form-register a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.form-register .botons {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: none;
+    padding: 12px;
+    color: #000000;
+    margin:  16px 0;
+    font-size: 16px;
+}

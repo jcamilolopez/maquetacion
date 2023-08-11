@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entradas básicas</title>
+    <link rel="icon" href="img/reall.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <header>
+        <h1>INICIO SESION</h1>
+    </header>
+    
+    <div class="contenido">
+        <!-- Formulario de Inicio de Sesión -->
+        <form class="form-validacion" action="buscar.html" onsubmit="return validarFormulario();">
+            <div class="titulo">
+                <h2>Inicio de Sesión</h2>
+            </div>
+            <div class="entrada">
+                <label>Nombre</label>
+                <input type="text" placeholder="Nombre completo" name="nombre" id="nombre">
+                <i id="nombre-icon" class="fas"></i>
+                <span id="error-nombre" class="error-msg"></span>
+            </div>
+            <div class="entrada">
+                <label>Email</label>
+                <input type="email" placeholder="ejemplo@email.com" name="email" id="email">
+                <i id="email-icon" class="fas"></i>
+                <span id="error-email" class="error-msg"></span>
+            </div>
+            <div class="boton">
+                <input type="submit" value="Iniciar Sesión">
+            </div>
+        </form>
+        <div class="registro">
+    <div class="registro-link">
+        <p>No tienes cuenta? <a href="registro.html">Registrate </a></p>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            // Restablecer mensajes de error
+            document.getElementById('error-nombre').textContent = '';
+            document.getElementById('error-email').textContent = '';     
+
+            document.getElementById('nombre-icon').className = 'fas';
+            document.getElementById('email-icon').className = 'fas';
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const email = document.getElementById('email').value.trim();
+            let valid = true;
+
+            if (nombre === '') {
+                document.getElementById('error-nombre').textContent = 'Por favor, ingrese su nombre.';
+                document.getElementById('nombre-icon').classList.add('fa-exclamation-circle');
+                valid = false;
+            } else {
+                document.getElementById('nombre-icon').classList.add('fa-check-circle');
+            }
+
+            if (email === '') {
+                document.getElementById('error-email').textContent = 'Por favor, ingrese su dirección de correo electrónico.';
+                document.getElementById('email-icon').classList.add('fa-exclamation-circle');
+                valid = false;
+            } else if (!validateEmail(email)) {
+                document.getElementById('error-email').textContent = 'Por favor, ingrese una dirección de correo electrónico válida.';
+                document.getElementById('email-icon').classList.add('fa-exclamation-circle');
+                valid = false;
+            } else {
+                document.getElementById('email-icon').classList.add('fa-check-circle');
+            }
+            return valid;
+        }
+        
+        function validateEmail(email) {
+            const emailPattern = /\S+@\S+\.\S+/;
+            return emailPattern.test(email);
+        }
+    </script>
+
+    <footer>
+        <!-- Pie de página -->
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="basico.html" class="activo">Entradas básicas</a></li>
+                <li><a href="registro.html" class="activo">Form Registro</a></li>
+                <li><a href="acceso.html" class="activo">Inicio sesión</a></li>
+                <li><a href="buscar.html" class="activo">Form Busqueda</a></li>
+                <li><a href="validacion.html" class="activo">Validación</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
+
+

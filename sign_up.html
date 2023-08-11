@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/chess_horse.png">
+    <link rel="stylesheet" href="css/sign_up_styles.css">
+    <title>Registrarse</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const emailInput = document.getElementById("correo");
+            const passwordInput = document.getElementById("contraseña");
+    
+            form.addEventListener("submit", function (event) {
+                let valid = true;
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const passwordRegex = /^(?=.*[A-Z])(?=.*[!@#$%^&*-_])(?=.*[0-9]).{8,}$/;
+    
+                if (!emailRegex.test(emailInput.value)) {
+                    valid = false;
+                    emailInput.style.borderColor = "red";
+                } else {
+                    emailInput.style.borderColor = "green";
+                }
+    
+                if (!passwordRegex.test(passwordInput.value)) {
+                    valid = false;
+                    passwordInput.style.borderColor = "red";
+                } else {
+                    passwordInput.style.borderColor = "green";
+                }
+    
+                if (!valid) {
+                    event.preventDefault();
+                    alert("Por favor, complete los campos correctamente.");
+                }
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <img src="img/chess_horse.png" alt="">
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Inicio</a></li>
+                    <li><a href="search.html">Busqueda</a></li>
+                    <li><a href="log_in.html">Iniciar sesion</a></li>
+                    <li><a href="sign_up.html">Registrarse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="form-register">
+        <h4>Formulario Registro</h4>
+        <form action="search.html">
+            <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+            <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese sus apellidos">
+            <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico">
+            <input class="controls" type="password" name="contraseña" id="contraseña" placeholder="Ingrese una contraseña">
+            <p><a href="#">Terminos y Condiciones</a></p>
+            <input class="botons" type="submit" value="Registrar">
+        </form>
+        <p><a href="log_in.html">¿Ya tienes una cuenta?</a></p>
+    </section>
+</body>
+</html>
